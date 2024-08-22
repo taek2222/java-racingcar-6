@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.model.Car;
+import racingcar.domain.Car;
 import racingcar.validate.CarValidator;
 import racingcar.view.Input;
 import racingcar.view.Output;
@@ -33,7 +33,7 @@ public class RacingCarController {
                 int number = Randoms.pickNumberInRange(0, 9);
 
                 if(number > 3)
-                    car.processDistancePlus();
+                    car.saveDistance(car.getDistance() + 1);
             }
 
             for (Car car : carList) {
