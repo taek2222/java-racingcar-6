@@ -7,11 +7,11 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.view.Input.readLine;
 import static racingcar.view.car.CarOutput.*;
 import static racingcar.view.car.CarOutput.println;
 
 public class RacingCarController {
-    private final CarSetting carSetting = new CarSetting();
     private final CarValidator carValidator = new CarValidator();
     private final CarMove carMove = new CarMove();
     private final CarWinner carWinner = new CarWinner();
@@ -33,19 +33,19 @@ public class RacingCarController {
 
     private List<Car> initCar() {
         printCarPlayCountInputMessage();
-        String[] cars = carSetting.inputCarName();
+        String[] cars = readLine().split(",");
         carValidator.carNameValidator(cars);
 
         List<Car> carList = new ArrayList<>();
         for (String car : cars)
-            carList.add(carSetting.saveCar(car));
+            carList.add(new Car(car));
 
         return carList;
     }
 
     private int initPlayCount() {
         printCarNameInputMessage();
-        return carSetting.inputCarPlayCount();
+        return Integer.parseInt(readLine());
     }
 
     private void carMoves(List<Car> carList) {
