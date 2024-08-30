@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import static racingcar.domain.car.CarConstant.*;
+import static racingcar.domain.car.GameConfig.*;
 
 public class CarMove {
 
